@@ -38,12 +38,18 @@ jobs:
     - name: Publish the app
       run: dotnet publish ./src/experimental.api/experimental.api.csproj -c Release -o ./publish --no-build
 
+    - name: Create distribution archive
+      run: |
+        cd ./publish
+        zip -r ../experimental.api-release.zip .
+        cd ..
+
     - name: Publish to GitHub Release
       uses: softprops/action-gh-release@v1
       if: startsWith(github.ref, 'refs/tags/')
       with:
         files: |
-            ./publish/**/*
+            experimental.api-release.zip
         generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
