@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "experimental.api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "weatherforecast",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:5555"
+    }
+  }
+}
